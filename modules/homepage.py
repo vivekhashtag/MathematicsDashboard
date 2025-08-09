@@ -4,6 +4,7 @@ def show_homepage():
     # Main Title
     st.title("📊 Mathematics Learning Dashboard")
     st.subheader("Learn Mathematics through Real Business Applications")
+    st.markdown("Have a great learning experience - [Vivek Dhandapani](https://www.linkedin.com/in/vivekdhandapani)")
     
     # Introduction
     st.info("""
@@ -54,21 +55,21 @@ def show_homepage():
             "title": "📈 Calculus",
             "description": "Understand derivatives and integrals through marginal analysis, optimization problems, and growth rate calculations in business contexts.",
             "topics": ["Limits", "Derivatives", "Integrals", "Optimization", "Applications"],
-            "status": "coming_soon", 
+            "status": "available", 
             "business_applications": "Marginal Analysis, Rate Optimization, Growth Modeling"
         },
         {
             "title": "🔄 Series & Sequences",
             "description": "Learn arithmetic and geometric progressions through compound interest, loan calculations, and recurring business pattern analysis.",
             "topics": ["Arithmetic Series", "Geometric Series", "Power Series", "Convergence"],
-            "status": "coming_soon",
+            "status": "available",
             "business_applications": "Financial Planning, Loan Analysis, Growth Projections"
         },
         {
             "title": "⚡ Optimization",
             "description": "Apply mathematical optimization to resource allocation, production planning, and strategic decision-making scenarios.",
             "topics": ["Linear Programming", "Nonlinear Optimization", "Constraint Problems", "Game Theory"],
-            "status": "coming_soon",
+            "status": "available",
             "business_applications": "Resource Allocation, Production Planning, Strategy"
         }
     ]
@@ -101,7 +102,14 @@ def show_homepage():
                     if st.button(f"Start Learning", key=f"btn_{division['title']}"):
                             # ADD THIS CONDITION:
                         if "Linear Algebra" in division['title']:
-                            st.session_state.page = "linear_algebra"  # Route to linear algebra overview
+                            st.session_state.page = "linear_algebra"
+                        elif "Calculus" in division['title']:
+                            st.session_state.page = "calculus"  # Route to calculus overview
+                        # Add elif condition in button handler:
+                        elif "Series" in division['title']:
+                            st.session_state.page = "series_sequences"
+                        elif "Optimization" in division['title']:
+                            st.session_state.page = "optimization"
                         else:
                             st.session_state.page = "algebra"  # Existing algebra route
                             st.rerun()
@@ -124,3 +132,35 @@ def show_homepage():
     
     **Start with Algebra to build your foundation, then progress through advanced topics!**
     """)
+
+    # After your existing divisions_data loop, add this special section:
+
+    st.markdown("---")
+    st.header("🚀 Complete Your Journey")
+
+    # Special capstone section
+    col1, col2 = st.columns([3, 1])
+
+    with col1:
+        st.subheader("🌟 The Mathematical Evolution - From Formulas to AI")
+        st.write("""
+        Discover how your mathematical foundation leads naturally to Statistics and Machine Learning. 
+        See the complete journey from pure mathematics to intelligent systems and AI applications.
+        """)
+        
+        st.write("**🎯 What You'll Discover:**")
+        st.write("Mathematics → Statistics → Machine Learning → Artificial Intelligence")
+        
+        st.info("Perfect capstone to complete your mathematical learning journey!")
+
+    with col2:
+        st.write("")  # Spacing
+        st.write("")  # Spacing
+        
+        if st.button("🚀 Explore the Evolution", key="evolution_btn"):
+            st.session_state.page = 'mathematical_evolution'
+            st.rerun()
+        
+        st.write("⏱️ ~15-20 min")
+        st.write("🎓 Inspirational")
+        st.write("🌟 Vision & Roadmap")

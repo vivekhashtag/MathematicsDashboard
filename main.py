@@ -26,6 +26,14 @@ from modules.linear_algebra_topics.eigenvalues_eigenvectors import show_eigenval
 # from modules.linear_algebra_topics.eigenvalues_eigenvectors import show_eigenvalues_eigenvectors
 from modules.linear_algebra_topics.pca import show_pca
 
+from modules.calculus_overview import show_calculus_overview
+from modules.calculus_topics.derivatives import show_derivatives
+from modules.calculus_topics.integrals import show_integrals
+
+from modules.series_sequences import show_series_sequences
+from modules.optimization import show_optimization
+
+from modules.mathematical_evolution import show_mathematical_evolution
 
 # Hide the default sidebar navigation
 st.markdown("""
@@ -82,6 +90,19 @@ def main():
     
     elif st.session_state.page == 'linear_algebra_pca':
         show_pca()
+    
+    elif st.session_state.page == 'calculus':
+        show_calculus_overview()
+    elif st.session_state.page == 'calculus_derivatives':
+        show_derivatives()
+    elif st.session_state.page == 'series_sequences':
+         show_series_sequences()
+    elif st.session_state.page == 'calculus_integrals':
+        show_integrals()
+    elif st.session_state.page == 'optimization':
+        show_optimization()
+    elif st.session_state.page == 'mathematical_evolution':
+        show_mathematical_evolution()
     
     else:
         # Default fallback to homepage
