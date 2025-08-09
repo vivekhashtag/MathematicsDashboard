@@ -749,3 +749,4 @@ ML: Revenue = learned_function(Price, Quantity,
             st.rerun()
     
     st.markdown("---")
+    st.markdown("** Hope you enjoyed the learning experience!! - [Vivek Dhandapani](https://www.linkedin.com/in/vivekdhandapani)**")
