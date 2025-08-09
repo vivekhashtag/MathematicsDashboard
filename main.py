@@ -18,6 +18,14 @@ from modules.algebra_topics.inverse_functions import show_inverse_functions
 from modules.algebra_topics.systems_equations import show_systems_equations
 
 
+# Add these imports after the existing algebra imports
+from modules.linear_algebra_overview import show_linear_algebra_overview
+from modules.linear_algebra_topics.vector_matrices import show_vectors_matrices
+# Add this import with your other linear algebra imports
+from modules.linear_algebra_topics.eigenvalues_eigenvectors import show_eigenvalues_eigenvectors
+# from modules.linear_algebra_topics.eigenvalues_eigenvectors import show_eigenvalues_eigenvectors
+from modules.linear_algebra_topics.pca import show_pca
+
 
 # Hide the default sidebar navigation
 st.markdown("""
@@ -61,6 +69,19 @@ def main():
     
     elif st.session_state.page == 'algebra_systems':
         show_systems_equations()
+
+    # ADD THESE NEW LINEAR ALGEBRA ROUTES:
+    elif st.session_state.page == 'linear_algebra':
+        show_linear_algebra_overview()
+    
+    elif st.session_state.page == 'linear_algebra_vectors':
+        show_vectors_matrices()
+    
+    elif st.session_state.page == 'linear_algebra_eigen':
+        show_eigenvalues_eigenvectors()
+    
+    elif st.session_state.page == 'linear_algebra_pca':
+        show_pca()
     
     else:
         # Default fallback to homepage

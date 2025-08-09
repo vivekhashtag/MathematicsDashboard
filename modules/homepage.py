@@ -42,11 +42,13 @@ def show_homepage():
             "business_applications": "Profit Analysis, Cost Optimization, Revenue Planning"
         },
         {
-            "title": "📐 Linear Algebra", 
-            "description": "Explore matrices and vectors through portfolio management, supply chain optimization, and data transformation business cases.",
-            "topics": ["Matrix Operations", "Vector Spaces", "Eigenvalues", "Linear Transformations"],
-            "status": "coming_soon",
-            "business_applications": "Portfolio Analysis, Supply Chain, Data Analytics"
+            
+    "title": "📐 Linear Algebra", 
+    "description": "Explore matrices and vectors through portfolio management, supply chain optimization, and data transformation business cases.",
+    "topics": ["Vectors & Matrices", "Eigenvalues & Eigenvectors", "Principal Component Analysis"],  # Updated topics
+    "status": "available",  # CHANGED FROM "coming_soon"
+    "business_applications": "Customer Analytics, Data Patterns, Dimensionality Reduction"  # Updated applications
+
         },
         {
             "title": "📈 Calculus",
@@ -97,8 +99,12 @@ def show_homepage():
                 if division["status"] == "available":
                     st.success("✅ Available Now")
                     if st.button(f"Start Learning", key=f"btn_{division['title']}"):
-                        st.session_state.page = "algebra"
-                        st.rerun()
+                            # ADD THIS CONDITION:
+                        if "Linear Algebra" in division['title']:
+                            st.session_state.page = "linear_algebra"  # Route to linear algebra overview
+                        else:
+                            st.session_state.page = "algebra"  # Existing algebra route
+                            st.rerun()
                 else:
                     st.warning("🚧 Coming Soon")
             
